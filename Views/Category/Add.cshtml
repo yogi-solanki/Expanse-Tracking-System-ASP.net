@@ -1,0 +1,147 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model myweb.Models.Item
+
+@{
+    ViewData["Title"] = "Create the Role";
+}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .card-icon {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+        float: right;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card bg-primary text-white">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Current Month
+                        <img src="https://cdn-icons-png.flaticon.com/128/942/942810.png" alt="Calendar Icon" class="card-icon">
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">@ViewData["CurrentMonth"]</p>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-success text-white">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Cost
+                        <img src="https://cdn-icons-png.flaticon.com/128/1611/1611179.png" alt="Cost Icon" class="card-icon">
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"> @ViewData["cost"]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card bg-warning text-dark">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Food
+                        <img src="https://cdn-icons-png.flaticon.com/128/738/738079.png" alt="Food Icon" class="card-icon">
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">@ViewData["Food"]</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Clothes
+                        <img src="https://cdn-icons-png.flaticon.com/128/2946/2946695.png" alt="Clothes Icon" class="card-icon">
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"> @ViewData["Clothes"]</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-secondary text-white">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Transport
+                        <img src="https://cdn-icons-png.flaticon.com/128/2945/2945682.png" alt="Transport Icon" class="card-icon">
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"> @ViewData["Transport"]</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-danger text-white">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Other
+                        <img src="https://cdn-icons-png.flaticon.com/128/10348/10348994.png" alt="Other Icon" class="card-icon">
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"> @ViewData["Other"]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card bg-info text-white">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Total Money Left
+                        <img src="https://cdn-icons-png.flaticon.com/128/3830/3830090.png" alt="Money Icon" class="card-icon">
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"> @ViewData["Total"]</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-dark text-white">
+                <div class="card-header">
+                    <h5 class="card-title">
+                        Status
+                        <img src="https://cdn-icons-png.flaticon.com/128/6698/6698497.png" alt="Profile Icon" class="card-icon">
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">@ViewData["Profile"]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a asp-action="Update" asp-controller="Category" asp-route-Id="@ViewData["Userid"]">Add Today's Expenses</a>
+<br />

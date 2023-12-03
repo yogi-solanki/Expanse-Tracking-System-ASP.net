@@ -1,0 +1,102 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model myweb.Models.Item
+
+
+@{
+    ViewData["Title"] = "Today's Expense";
+}
+ <label asp-for="Food"><input type="radio" onclick="Food()" name="Cost">Food</label><br />
+        <div id="demo" style="display: none;"><br />
+            <form id="demo" method="post">
+                <input type="hidden" asp-for="Id" value="@ViewData["id"]" />
+                <input type="hidden" asp-for="UserId" value="@ViewData["Userid"]" />
+                <label asp-for="Food"></label>
+                <input asp-for="Food" />
+                <button type="submit">Add Expense</button>
+            </form>
+        </div>
+        <label asp-for="Clothes" ><input type="radio" onclick="Clothes()" name="Cost">Clothes</label><br />
+        <div id="ClothesDivdemo" style="display: none;"><br />
+            <form id="Clothesdemo" method="post">
+                <input type="hidden" asp-for="Id" value="@ViewData["id"]" />
+                <input type="hidden" asp-for="UserId" value="@ViewData["Userid"]" />
+                <label asp-for="Clothes"></label>
+                <input asp-for="Clothes" />
+                <button type="submit">Add Expense</button>
+            </form>
+        </div>
+        <label asp-for="Transport"><input type="radio" onclick="Transport()" name="Cost">Transport</label><br />
+        <div id="TransportDivdemo" style="display: none;">
+            <br />
+            <form id="Transportdemo" method="post">
+                <input type="hidden" asp-for="Id" value="@ViewData["id"]" />
+                <input type="hidden" asp-for="UserId" value="@ViewData["Userid"]" />
+                <label asp-for="Transport"></label>
+                <input asp-for="Transport" />
+                <button type="submit">Add Expense</button>
+            </form>
+        </div>
+        <label asp-for="Other" ><input type="radio" onclick="Other()" name="Cost" />Other</label><br />
+        <div id="OtherDivdemo" style="display: none;">
+            <br />
+            <form id="Otherdemo" method="post">
+                <input type="hidden" asp-for="Id" value="@ViewData["id"]" />
+                <input type="hidden" asp-for="UserId" value="@ViewData["Userid"]" />
+                <label asp-for="Other"></label>
+                <input asp-for="Other" />
+                <button type="submit">Add Expense</button>
+            </form>
+        </div>
+
+  
+    <a asp-action="Index" asp-controller="Category">Back to Home</a>
+
+<script>
+    function Food()
+    {
+        var inputBoxContainer = document.getElementById("demo");
+            var inputBox = document.getElementById("Food");
+
+            if (inputBoxContainer.style.display === "none") {
+                inputBoxContainer.style.display = "block";
+                inputBox.focus();
+            } else {
+                inputBoxContainer.style.display = "none";
+            }
+    }
+    function Transport() {
+        var inputBoxContainer = document.getElementById("TransportDivdemo");
+        var inputBox = document.getElementById("Transportdemo");
+
+        if (inputBoxContainer.style.display === "none") {
+            inputBoxContainer.style.display = "block";
+            inputBox.focus();
+        } else {
+            inputBoxContainer.style.display = "none";
+        }
+    }
+    function Clothes() {
+        var inputBoxContainer = document.getElementById("ClothesDivdemo");
+        var inputBox = document.getElementById("ClothesDemo");
+
+        if (inputBoxContainer.style.display === "none") {
+            inputBoxContainer.style.display = "block";
+            inputBox.focus();
+        } else {
+            inputBoxContainer.style.display = "none";
+        }
+    }
+    function Other() {
+        var inputBoxContainer = document.getElementById("OtherDivdemo");
+        var inputBox = document.getElementById("Otherdemo");
+
+        if (inputBoxContainer.style.display === "none") {
+            inputBoxContainer.style.display = "block";
+            inputBox.focus();
+        } else {
+            inputBoxContainer.style.display = "none";
+        }
+    }
+</script>

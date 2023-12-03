@@ -1,0 +1,92 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<Item>
+@{
+}
+ @foreach (var item in Model)
+   {
+    @if (item.currentMonth == DateTime.Now.Month)
+    {
+        continue;
+    }
+    else
+    {
+        <div class="container">
+            <table class="table">
+                <tr>
+                    <th scope="row">1</th>
+                    <td> Month </td><td> @item.currentMonth</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>
+                        UserID:
+                    </td>
+                    <td>@item.UserId</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>
+                        Cost:
+                    </td>
+                    <td>@item.Cost</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>
+                        Food:
+                    </td>
+                    <td>@item.Food</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>
+                        Clothes:
+                    </td>
+                    <td>@item.Clothes</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>
+                        Transport:
+                    </td>
+                    <td>@item.Transport</td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>
+                        Other:
+                    </td>
+                    <td>
+                        @item.Other
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>
+                        Total Money Left:
+                    </td>
+                    <td>@item.Total</td>
+                </tr>
+                 <tr>
+                    <th scope="row">9</th>
+                    <td>
+                        profile</td>
+                @if (item.Total>0)
+                {
+                        <td>Profit</td>
+                    }
+                    else if(item.Total<0)
+                    {
+                        <td>Loss</td>
+                    }
+                    else
+                    {
+                        <td>No profit No Loss</td>
+                    }
+
+            </table>
+        </div>
+    }
+}

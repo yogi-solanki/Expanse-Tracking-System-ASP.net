@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "UserEmail";
+}
+
+<style>
+    .center-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Adjust the height as needed */
+    }
+
+    .nav {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 470px;
+         /* Adjust the margin as needed */
+        margin-top: 1%; /* Adjust the margin as needed */
+    }
+
+    .red-button {
+        background-color: lightskyblue;
+        
+        color: #000000;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        margin-right: 20px;
+        
+        /* Add any additional styles you want for the button */
+    }
+</style>
+
+<div class="center-container">
+    <div class="nav">
+        <button class="red-button">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Add" asp-route-id="@ViewData["UserEmail"]">Dashboard</a>
+        </button>
+        <button class="red-button" type="button" onclick='location.href="@Url.Action("Update", "Category", new { Id = ViewData["Userid"] })"'>
+            Add Today's Expenses
+        </button>
+    </div>
+</div>

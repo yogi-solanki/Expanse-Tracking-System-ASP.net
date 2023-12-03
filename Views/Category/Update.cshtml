@@ -1,0 +1,218 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model myweb.Models.Item
+@{
+    ViewData["Title"] = "Update";
+}
+
+<!-- Include Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    /* Import a classic font */
+    
+
+    body {
+        font-family: 'EB Garamond', serif;
+    }
+
+    .card {
+        margin: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        letter-spacing: 1px;
+    }
+
+    .card-radio-label {
+        display: flex;
+        align-items: center;
+    }
+
+    .card-radio-label input[type="radio"] {
+        margin-right: 10px;
+    }
+
+    .card-radio-label:hover {
+        cursor: pointer;
+    }
+
+    .card-radio-form {
+        margin-top: 10px;
+        display: none;
+    }
+
+    .card-radio-form input[type="hidden"] {
+        display: none;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Food</h5>
+                    <div class="card-text">
+                        <div class="card-radio-label" onclick="toggleForm('foodForm')">
+                            <input type="radio" onclick="Food()" name="Cost" id="foodRadio" class="form-check-input">
+                            <label for="foodRadio">Select Food</label>
+                        </div>
+                        <div id="foodForm" class="card-radio-form">
+                            <form method="post">
+                                <input type="hidden" asp-for="Id" value="@ViewData["Id"]" /><br />
+                                <input type="hidden" asp-for="UserId" value="@ViewData["UserEmail"]" />
+                                <div class="form-group">
+                                    <label asp-for="Food">Food:</label>
+                                    <input asp-for="Food" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Expense</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Clothes</h5>
+                    <div class="card-text">
+                        <div class="card-radio-label" onclick="toggleForm('clothesForm')">
+                            <input type="radio" onclick="Clothes()" name="Cost" id="clothesRadio" class="form-check-input">
+                            <label for="clothesRadio">Select Clothes</label>
+                        </div>
+                        <div id="clothesForm" class="card-radio-form">
+                            <form method="post">
+                                <input type="hidden" asp-for="Id" value="@ViewData["Id"]" /><br />
+                                <input type="hidden" asp-for="UserId" value="@ViewData["UserEmail"]" />
+                                <div class="form-group">
+                                    <label asp-for="Clothes">Clothes:</label>
+                                    <input asp-for="Clothes" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Expense</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Transport</h5>
+                    <div class="card-text">
+                        <div class="card-radio-label" onclick="toggleForm('transportForm')">
+                            <input type="radio" onclick="Transport()" name="Cost" id="transportRadio" class="form-check-input">
+                            <label for="transportRadio">Select Transport</label>
+                        </div>
+                        <div id="transportForm" class="card-radio-form">
+                            <form method="post">
+                                <input type="hidden" asp-for="Id" value="@ViewData["Id"]" /><br />
+                                <input type="hidden" asp-for="UserId" value="@ViewData["UserEmail"]" />
+                                <div class="form-group">
+                                    <label asp-for="Transport">Transport:</label>
+                                    <input asp-for="Transport" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Expense</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Other</h5>
+                    <div class="card-text">
+                        <div class="card-radio-label" onclick="toggleForm('otherForm')">
+                            <input type="radio" onclick="Other()" name="Cost" id="otherRadio" class="form-check-input">
+                            <label for="otherRadio">Select Other</label>
+                        </div>
+                        <div id="otherForm" class="card-radio-form">
+                            <form method="post">
+                                <input type="hidden" asp-for="Id" value="@ViewData["Id"]" /><br />
+                                <input type="hidden" asp-for="UserId" value="@ViewData["UserEmail"]" />
+                                <div class="form-group">
+                                    <label asp-for="Other">Other:</label>
+                                    <input asp-for="Other" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Add Expense</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<script>
+    function toggleForm(formId) {
+        var form = document.getElementById(formId);
+
+        if (form.style.display === "none") {
+            form.style.display = "block";
+        } else {
+            form.style.display = "none";
+        }
+    }
+
+    function Food() {
+        var inputBoxContainer = document.getElementById("foodForm");
+
+        if (inputBoxContainer.style.display === "none") {
+            inputBoxContainer.style.display = "block";
+        } else {
+            inputBoxContainer.style.display = "none";
+        }
+    }
+
+    function Transport() {
+        var inputBoxContainer = document.getElementById("transportForm");
+
+        if (inputBoxContainer.style.display === "none") {
+            inputBoxContainer.style.display = "block";
+        } else {
+            inputBoxContainer.style.display = "none";
+        }
+    }
+
+    function Clothes() {
+        var inputBoxContainer = document.getElementById("clothesForm");
+
+        if (inputBoxContainer.style.display === "none") {
+            inputBoxContainer.style.display = "block";
+        } else {
+            inputBoxContainer.style.display = "none";
+        }
+    }
+
+    function Other() {
+        var inputBoxContainer = document.getElementById("otherForm");
+
+        if (inputBoxContainer.style.display === "none") {
+            inputBoxContainer.style.display = "block";
+        } else {
+            inputBoxContainer.style.display = "none";
+        }
+    }
+</script>

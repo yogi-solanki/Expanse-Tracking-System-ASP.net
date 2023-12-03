@@ -1,0 +1,16 @@
+﻿@model myweb.Models.Item
+@{
+    ViewData["Title"] = "New";
+}
+
+<h1>Add The Budget For The Month</h1>
+ <form method="post" >
+            <input type="hidden" asp-for="Id" value="@ViewData["Newid"]"/>
+            <input type="hidden" asp-for="UserId" value="@ViewData["Userid"]" />
+     <div class="form-group">
+        <label asp-for="Cost">Set The Cost For this Month</label>
+        <input asp-for="Cost" class="form-control" id="exampleInputEmail1">
+        <button type="submit">submit</button>
+
+    </div>
+ </form>

@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model myweb.Viewmodel.RoleStore
+@{
+    ViewData["Title"] = "Create the Role";
+}
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" id="exampleInputEmail1">
+        <button type="submit">submit</button>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
